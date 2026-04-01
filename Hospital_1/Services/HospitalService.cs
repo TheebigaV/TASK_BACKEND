@@ -20,10 +20,10 @@ public class HospitalService : IHospitalService
             .Include(d => d.Specialization)
             .Select(d => new DoctorDto {
                 Id = d.Id,
-                Name = d.Name,
-                Email = d.Email,
-                SpecializationName = d.Specialization.Name,
-                Skills = d.Skills
+                Name = d.Name ?? string.Empty,
+                Email = d.Email ?? string.Empty,
+                SpecializationName = d.Specialization != null ? (d.Specialization.Name ?? string.Empty) : string.Empty,
+                Skills = d.Skills ?? string.Empty
             }).ToListAsync();
     }
 
@@ -37,10 +37,10 @@ public class HospitalService : IHospitalService
 
         return new DoctorDto {
             Id = d.Id,
-            Name = d.Name,
-            Email = d.Email,
-            SpecializationName = d.Specialization.Name,
-            Skills = d.Skills
+            Name = d.Name ?? string.Empty,
+            Email = d.Email ?? string.Empty,
+            SpecializationName = d.Specialization != null ? (d.Specialization.Name ?? string.Empty) : string.Empty,
+            Skills = d.Skills ?? string.Empty
         };
     }
 
@@ -67,10 +67,10 @@ public class HospitalService : IHospitalService
             .Where(a => a.DoctorId == doctorId)
             .Select(a => new AppointmentDto {
                 Id = a.Id,
-                PatientName = a.Patient.Name,
+                PatientName = a.Patient != null ? (a.Patient.Name ?? string.Empty) : string.Empty,
                 AppointmentDate = a.AppointmentDate,
-                DoctorName = a.Doctor.Name,
-                Status = a.Status
+                DoctorName = a.Doctor != null ? (a.Doctor.Name ?? string.Empty) : string.Empty,
+                Status = a.Status ?? string.Empty
             }).ToListAsync();
     }
 
@@ -92,10 +92,10 @@ public class HospitalService : IHospitalService
             
         return new AppointmentDto {
             Id = appointment.Id,
-            PatientName = details?.Patient.Name ?? "Unknown",
+            PatientName = details?.Patient?.Name ?? "Unknown",
             AppointmentDate = appointment.AppointmentDate,
-            DoctorName = details?.Doctor.Name ?? "Unknown",
-            Status = appointment.Status
+            DoctorName = details?.Doctor?.Name ?? "Unknown",
+            Status = appointment.Status ?? string.Empty
         };
     }
 
@@ -103,8 +103,8 @@ public class HospitalService : IHospitalService
     {
         return await _context.Specializations.Select(s => new SpecializationDto {
             Id = s.Id,
-            Name = s.Name,
-            Description = s.Description
+            Name = s.Name ?? string.Empty,
+            Description = s.Description ?? string.Empty
         }).ToListAsync();
     }
 
@@ -146,9 +146,9 @@ public class HospitalService : IHospitalService
         return await _context.Patients
             .Select(p => new PatientDto {
                 Id = p.Id,
-                Name = p.Name,
-                Email = p.Email,
-                Phone = p.Phone
+                Name = p.Name ?? string.Empty,
+                Email = p.Email ?? string.Empty,
+                Phone = p.Phone ?? string.Empty
             }).ToListAsync();
     }
 }
