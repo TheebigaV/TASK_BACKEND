@@ -1,0 +1,89 @@
+# Standard .NET .gitignore
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (DotSettings)
+*.csproj.User
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Re]leases/
+x64/
+x86/
+[Ww]in32/
+[Aa]rm/
+[Aa]rm64/
+bld/
+[Bb]in/
+[Oo]bj/
+log/
+logs/
+
+# Visual Studio 2015/2017/2019/2022 cache/options directory
+.vs/
+# Uncomment if using tasks.vs.json
+#!.vs/tasks.vs.json
+# Project-specific-settings
+.vs/**/*.suo
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUnit
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+
+# Selenium
+chromedriver.exe
+geckodriver.exe
+IEDriverServer.exe
+
+# Code Coverage
+*.coverage
+*.coveragexml
+
+# Entity Framework/Database
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+*.mdf
+*.ldf
+*.sdf
+*.sqlite
+*.sqlite3
+
+# Specialized directories
+BenchmarkDotNet.Artifacts/
+
+# Publish
+publish/
+*.publish.xml
+
+# Rider
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+
+# Node (if applicable, e.g. for frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# User settings
+appsettings.json
+!appsettings.json
+appsettings.Development.json
+!appsettings.Development.json
